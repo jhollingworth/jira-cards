@@ -5,8 +5,8 @@ require 'uri'
 require 'pdfkit'
 gem 'soap4r'
 
-jira = Jira4R::JiraTool.new(2, "http://jira.toptable.com")
-jira.login("api", "Agile")
+jira = Jira4R::JiraTool.new(2, "http://jira")
+jira.login("", "")
 
 query = "project = \"Y Team\" AND fixVersion = \"Iteration 29\" ORDER BY Rank ASC, key ASC"
 
