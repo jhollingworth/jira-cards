@@ -4,3 +4,4 @@ lib/config.yml
 pkg
 *.gem
 *.gemspec
+.idea

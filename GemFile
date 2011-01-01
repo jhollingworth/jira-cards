@@ -9,5 +9,5 @@ group :development do
 end
 
 gem 'soap4r'
-gem 'jira4r', "> 0.3.0"
+gem 'jira4r-jh', "> 0.3.0"
 gem 'pdfkit'
