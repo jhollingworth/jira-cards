@@ -8,6 +8,7 @@ class Configuration
   def initialize()
     @config_path = File.dirname(__FILE__) + '/config.yml'
     create_config if false == File.exists?(@config_path)
+    puts "you can find the config file here #{File.expand_path(@config_path)}"
     YAML.load_file(@config_path).each do |key, value|
       create_method(key) {
         value

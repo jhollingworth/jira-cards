@@ -1,4 +1,3 @@
-require 'ruby-debug'
 class IssuesJqlGenerator
   def generate(options)
     keys = options[:keys]

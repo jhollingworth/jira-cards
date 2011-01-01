@@ -1,0 +1,8 @@
+h1. jira-cards
+
+A command line tool for generating scrum cards from jira.
+
+h1. Examples
+
+jira-cards issues --keys foo-1..foo-10 --output c:\temp\test.pdf
+jira-cards iteration --project "Some project" --version "Iteration 30" --output c:\temp\test.pdf
