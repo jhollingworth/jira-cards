@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RUBY_MODULE" version="4">
-  <component name="GemRequirementsHolder" version="2">
+  <component name="GemRequirementsHolder" version="3">
     <requirement>
       <requirement>
-        <dependency name="soap4r" version="0" bound="GREATER_OR_EQUAL" git="false" />
+        <dependency name="jira4r" version="0.3.0" bound="GREATER" git="false" path="false" doRequire="true" />
       </requirement>
-      <source from="jira-cards.rb" />
+      <source from="GemFile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="pdfkit" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="GemFile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rake" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="GemFile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rspec" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="GemFile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="soap4r" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="GemFile" />
+      <source from="lib/jira.rb" />
     </requirement>
   </component>
   <component name="NewModuleRootManager">

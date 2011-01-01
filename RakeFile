@@ -1,0 +1,12 @@
+require 'rubygems'
+require 'rake'
+require 'spec/rake/spectask'
+
+namespace :specs do
+
+  desc "Run all specs"
+  Spec::Rake::SpecTask.new('all') do |t|
+    t.spec_files = FileList['spec/**/*_spec.rb']
+  end
+
+end

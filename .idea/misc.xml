@@ -6,7 +6,10 @@
   <component name="ProjectDetails">
     <option name="projectName" value="jira-cards" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Ruby SDK 1.8.7 (C:\Ruby\bin\ruby.exe)" project-jdk-type="RUBY_SDK" />
+  <component name="ProjectResources">
+    <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Ruby SDK 1.9.1-p430" project-jdk-type="RUBY_SDK" />
   <component name="SvnBranchConfigurationManager">
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
