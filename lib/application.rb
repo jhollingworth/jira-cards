@@ -1,6 +1,6 @@
 require 'optiflag'
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
-require 'ruby-debug'
+
 require 'jql_generator'
 require 'jira'
 require 'html_renderer'
