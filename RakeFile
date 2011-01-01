@@ -20,17 +20,6 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{A command line tool for generating scrum cards from jira}
   gem.email = "jamiehollingworth@gmail.com"
   gem.authors = ["James Hollingworth"]
-
-  gem.add_runtime_dependency 'soap4r'
-  gem.add_runtime_dependency 'jira4r', "> 0.3.0"
-  gem.add_runtime_dependency 'pdfkit'
-
-  gem.add_development_dependency 'rspec', '> 1.2.3'
-  gem.add_development_dependency "bundler", "~> 1.0.0"
-  gem.add_development_dependency "jeweler", "~> 1.5.2"
-  gem.add_development_dependency "rake"
-  gem.add_development_dependency "rspec"
-  gem.add_development_dependency "ruby-debug", "< 0.10.4"
 end
 Jeweler::RubygemsDotOrgTasks.new
 
