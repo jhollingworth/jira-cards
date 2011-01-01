@@ -1,7 +1,0 @@
---- 
-template_stylesheet: 
-wkhtmltopdf_path: c:\\program files\\wkhtmltopdf\wkhtmltopdf.exe
-username: api
-jira_url: jira.toptable.com
-template_erb: 
-password: Agile
