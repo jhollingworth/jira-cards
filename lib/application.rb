@@ -1,10 +1,11 @@
 require 'optiflag'
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
-
+require 'ruby-debug'
 require 'jql_generator'
 require 'jira'
 require 'html_renderer'
 require 'pdf_renderer'
+require 'configuration'
 
 @command = ARGV[0]
 @command.downcase if !@command.nil?
@@ -31,16 +32,24 @@ end
 class Application
   class << self
     def run!(*args)
-      jira = Jira.new
+
+      config = Configuration.new
+
+      jira = Jira.new(config)
       jql = JqlGenerator.generate(ARGV[0], ARGV.flags)
 
-      puts "JQL Query: #{jql}"
-      html_renderer = HtmlRenderer.new
-      pdf_renderer = PdfRenderer.new
+      html_renderer = HtmlRenderer.new(config)
+      pdf_renderer = PdfRenderer.new(config)
 
       issues = jira.query(jql)
+
+      if issues.length == 0
+        puts "No issues found"
+        return
+      end
+
       html = html_renderer.render(issues)
-      pdf_renderer.render(html, ARGV.flags["output"])
+      pdf_renderer.render(html, ARGV.flags[:output])
     end
   end
 end

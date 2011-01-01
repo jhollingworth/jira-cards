@@ -1,4 +1,3 @@
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'rubygems'
-require 'application'
-exit Application.run!(*ARGV)
+require File.dirname(__FILE__) + '/lib/application'
+Application.run!

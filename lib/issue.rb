@@ -1,11 +1,14 @@
+require File.dirname(__FILE__) + '/meta'
+
 class Issue
+  include Meta
   attr_reader :issue_type
 
   def initialize(issue, custom_fields, types)
     @issue = issue
     @issue_type = get_type(types)
     custom_fields.each do |id, name|
-      create_method(name.to_sym ) {
+      create_method(name) {
         custom_field(id)
       }
     end
@@ -15,10 +18,6 @@ class Issue
 
   def method_missing(m, *args, &block)
     @issue.send m
-  end
-
-  def create_method( name, &block )
-    self.class.send( :define_method, name, &block )
   end
 
   def get_type(types)

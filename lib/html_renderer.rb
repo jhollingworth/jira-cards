@@ -2,8 +2,8 @@ require 'erb'
 
 class HtmlRenderer
 
-  def initialize(template = "cards.erb.html")
-    @template = template
+  def initialize(config)
+    @template = config.template_erb || File.dirname(__FILE__) + "/default_template.erb"
   end
 
   def render(issues)

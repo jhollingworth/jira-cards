@@ -2,6 +2,8 @@ SPEC_ROOT = File.dirname(__FILE__)
 
 $:.unshift(SPEC_ROOT)
 $:.unshift(File.join(SPEC_ROOT, '..', 'lib'))
+$:.unshift(File.join(SPEC_ROOT, '..', 'lib', 'jql_generators'))
+
 require 'rubygems'
 require 'ftools'
 

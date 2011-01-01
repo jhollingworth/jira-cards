@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<body>
+    <% @issues.each do |i| %>
+
+        <div class="card <%= i.issue_type.downcase %>">
+
+            <h1><%= i.issue_type %>: <%= i.key %></h1>
+
+            Points: <%= i.points %>
+
+        </div>
+
+    <% end %>
+</body>
+</html>
