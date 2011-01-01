@@ -2,3 +2,5 @@ lib/config.yml
 .idea
 .bundle
 pkg
+*.gem
+*.gemspec

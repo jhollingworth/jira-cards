@@ -13,17 +13,24 @@ require 'spec/rake/spectask'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "init"
-  gem.homepage = "http://github.com/jhollingworth/init"
+  gem.name = "jira-cards"
+  gem.homepage = "http://github.com/jhollingworth/jira-cards"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A command line tool for generating scrum cards from jira}
+  gem.description = %Q{A command line tool for generating scrum cards from jira}
   gem.email = "jamiehollingworth@gmail.com"
   gem.authors = ["James Hollingworth"]
-  # Include your dependencies below. Runtime dependencies are required when using your gem,
-  # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
+
+  gem.add_runtime_dependency 'soap4r'
+  gem.add_runtime_dependency 'jira4r', "> 0.3.0"
+  gem.add_runtime_dependency 'pdfkit'
+
+  gem.add_development_dependency 'rspec', '> 1.2.3'
+  gem.add_development_dependency "bundler", "~> 1.0.0"
+  gem.add_development_dependency "jeweler", "~> 1.5.2"
+  gem.add_development_dependency "rake"
+  gem.add_development_dependency "rspec"
+  gem.add_development_dependency "ruby-debug", "< 0.10.4"
 end
 Jeweler::RubygemsDotOrgTasks.new
 

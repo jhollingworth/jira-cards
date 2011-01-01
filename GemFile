@@ -1,13 +1,11 @@
 source "http://rubygems.org"
 
 group :development do
-  gem "shoulda", ">= 0"
   gem "bundler", "~> 1.0.0"
   gem "jeweler", "~> 1.5.2"
-  gem "rcov", ">= 0"
   gem "rake"
   gem "rspec"
-  gem "ruby-debug", "< 0.10.3"
+  gem "ruby-debug", "< 0.10.4"
 end
 
 gem 'soap4r'
