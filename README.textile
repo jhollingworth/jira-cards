@@ -23,7 +23,7 @@ When you first run the tool it will ask you:
 These values are then written to a config.yml file. If you run the command it will tell you where the config file is if you want to change it. 
 
 
-h1. Example commands
+h1. Commands
 
 The two commands are issues and iteration. For both commands you need to specify the output flag which is the path where you want the output pdf file to go to. 
 
@@ -54,3 +54,4 @@ jira-cards iteration --project "Some project" --version "Iteration 30" --output 
 
 h1. Templates
 
+The scrum cards are generated from an "erb":http://ruby-doc.org/stdlib/libdoc/erb/rdoc/ html template which is then converted to pdf using "pdfkit":https://github.com/jdpace/PDFKit. If you want to use your own template you can specify the path to your erb template & css file in the initial config. 
