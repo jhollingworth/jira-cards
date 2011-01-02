@@ -38,11 +38,11 @@ h2. Issues
 
 For printing individual issues.
 
-<pre>--output</pre> 
-The path you want the pdf written to 
-<pre>--keys</pre> 
+--output:  The path you want the pdf written to
 
-The issue keys you want to print
+e.g. c:\foo\bar.pdf
+ 
+--keys: The issue keys you want to print
 
 You can specify individual keys (separated by comma), e.g. 
 
@@ -64,13 +64,22 @@ jira-cards issues --keys foo-4..foo-10,foo-21..foo-35 --output c:\temp\test.pdf
 
 h2. Iteration
 
-You want this if you want to get all of the cards for an iteration (or version in jira-speak). The flags are:
+For printing all issues for a team for a specific version.
 
-* --project
-* --version
+--output:  The path you want the pdf written to
+
+e.g. c:\foo\bar.pdf
+ 
+--project: The name of the team
+
+e.g. "Foo Team"
+
+--version: The version you want to print cards from
+
+e.g. "Iteration 30"
 
 <pre>
-jira-cards iteration --project "Some project" --version "Iteration 30" --output c:\temp\test.pdf
+jira-cards iteration --project "Foo Team" --version "Iteration 30" --output c:\temp\test.pdf
 </pre>
 
 h1. Templates
