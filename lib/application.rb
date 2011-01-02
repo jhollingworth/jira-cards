@@ -17,7 +17,7 @@ c.help do
   $stderr.puts "iteration: print cards for an iteration\n\n\t" +
                "[--v|--version] the version you want to print e.g. Iteration 30\n\t" +
                "[--p|--project] the project e.g. \"Some project\"\n\t" +
-               "[--o|--output] output path for pdf e.g. c:\foo\temp.pdf\n\n"
+               "[--o|--output] output path for pdf e.g. c:\\foo\\temp.pdf\n\n"
 end
 
 c.options :help => false, :h => :help
