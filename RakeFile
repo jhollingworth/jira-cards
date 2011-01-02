@@ -17,7 +17,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/jhollingworth/jira-cards"
   gem.license = "MIT"
   gem.summary = %Q{A command line tool for generating scrum cards from jira}
-  gem.description = %Q{A command line tool for generating scrum cards from jira}
+  gem.description = %Q{You can get individual issues or all issues for an iteration. see --h for more info}
   gem.email = "jamiehollingworth@gmail.com"
   gem.authors = ["James Hollingworth"]
 end
