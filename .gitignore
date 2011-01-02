@@ -5,3 +5,4 @@ pkg
 *.gem
 *.gemspec
 .idea
+spec/test.pdf

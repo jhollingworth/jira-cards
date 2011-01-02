@@ -8,9 +8,9 @@ describe "When I render the issues" do
         :issue_type => "Story", :key => "PY-1"
       })
     ]
-    @renderer = HtmlRenderer.new(
-      File.dirname(__FILE__) + '/test.erb'
-    )
+    @renderer = HtmlRenderer.new(Mock.new({
+      :template_erb => File.dirname(__FILE__) + '/test.erb'
+    }))
   end
 
   before(:each) do

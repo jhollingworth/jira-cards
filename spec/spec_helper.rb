@@ -8,11 +8,13 @@ require 'rubygems'
 require 'ftools'
 
 def delete_file(path)
-  (0..10).each do
+  (0..20).each do
     begin
       File.delete(path) if File.exists?(path)
       return
     rescue
     end
   end
+
+  puts "Failed to delete #{path}"
 end

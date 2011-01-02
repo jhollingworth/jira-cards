@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'issue_jql_generator'
+require 'issues_jql_generator'
 
 describe "Generating issue jql" do
 
@@ -11,7 +11,7 @@ describe "Generating issue jql" do
     @jql = @generator.generate({:keys => @keys})
   end
 
-  describe "When the issue keys are separated by commands" do
+  describe "When the issue keys are separated by commas" do
     before(:all) do
       @keys = "py-1, py-3"
     end
@@ -28,6 +28,16 @@ describe "Generating issue jql" do
 
     it "should be able to work out the range" do
       @jql.should == "key = \"py-40\" or key = \"py-41\" or key = \"py-42\""
+    end
+  end
+
+  describe "When the issues keys are ranges separated by commas" do
+    before(:all) do
+      @keys = "py-1, py-4..py-6, py-14"
+    end
+
+    it "should be able to split the keys and work out the range" do
+      @jql.should == "key = \"py-1\" or key = \"py-4\" or key = \"py-5\" or key = \"py-6\" or key = \"py-14\""
     end
   end
 end

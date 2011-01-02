@@ -16,6 +16,6 @@ class PdfRenderer
     kit.stylesheets << @stylesheet
     kit.to_file output_file_path
 
-    puts "*******************\nPrinted scrum cards to #{output_file_path}\n*******************\n"
+    puts "Printed scrum cards to #{output_file_path}"
   end
 end
