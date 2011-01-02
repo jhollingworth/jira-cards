@@ -1,17 +1,44 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <body>
-    <% @issues.each do |i| %>
+	<table width="100%" height="100%" cellspacing="0" cellpadding="0">
+		<% row = 0 %>
 
-        <div class="card <%= i.issue_type.downcase %>">
+		<tr class="row-<%= row %>">
 
-            <h1><%= i.issue_type %>: <%= i.key %></h1>
+		<% @issues.each do |i| %>
 
-            Points: <%= i.points %>
+			<td valign="top" class="<%= (@issues.index(i) % 2 == 0) ? "left" : "right" %>">
 
-        </div>
+				<h1><%= i.key %>: <%= i.summary %></h1>
 
-    <% end %>
+				<div class="type <%= i.issue_type.downcase %>"><%= i.issue_type %></div>
+
+				<dl>
+					<dt>Points</dt><dd><%= i.points %></dd>
+					<dt>Priority</dt><dd><%= i.priority %></dd>
+					<dt>Story Owner</dt><dd><%= i.assignee.capitalize %></dd>
+                </dl>
+			</td>
+
+			<% if @issues.index(i) % 2 != 0 %>
+                  
+				<% row +=1 %>
+
+				</tr>
+
+				<% if row % 3 == 0 %>
+
+					</table>
+
+					<table style="margin-top:16px;" width="100%" height="100%"  cellspacing="0" cellpadding="0">
+
+				<% end %>
+
+				<tr class="row-<%= row  %> <%= ((row + 1) % 3 == 0)? "third-row" : "" %>">
+
+			<% end %>
+
+		<% end %>
+	</table>
 </body>
 </html>

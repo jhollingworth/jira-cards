@@ -1,0 +1,51 @@
+html
+{
+	font-family:georgia;
+}
+
+td
+{
+	width:50%;
+	height: 453px;
+	border-bottom:1px dashed #CCC;
+	padding:20px;
+	text-align: top;
+}
+
+h1
+{
+	font-size:33px;
+	margin:0;
+	border:0;
+}
+
+.type
+{
+	font-size:25px;
+}
+
+td.left
+{
+	border-right:1px dashed #CCC;
+}
+
+.third-row td
+{
+	border-bottom:none;
+}
+
+dl
+{
+	font-size:20px;
+}
+
+dt
+{
+	float:left;
+	color:#9E999B;
+}
+
+dd
+{
+	padding-left:130px;
+}
