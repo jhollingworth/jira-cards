@@ -2,6 +2,18 @@ h1. jira-cards
 
 A command line tool for generating scrum cards from jira.
 
+h1. Installation 
+
+
+You are going to need to
+
+* "Enable the jira RPC-Plugin":http://confluence.atlassian.com/display/JIRA/JIRA+XML-RPC+Overview
+* Install "wkhtmltopdf":http://code.google.com/p/wkhtmltopdf/ 
+
+h1. Templates
+
+
+
 h1. Examples
 
 <pre>
