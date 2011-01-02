@@ -8,14 +8,15 @@ c.usage do
 end
 
 c.help do
-  $stderr.puts "config: the current jira configuration\n\n\t[--r|--reset] if this flag is specified, it will reset the configuration\n\n"
+  $stderr.puts "config: shows the current jira configuration\n\n\t" +
+               "[--r|--reset] if this flag is specified, it will reset the configuration\n\n"
 
   $stderr.puts "issues: print cards for specific issues\n\n\t" +
                "[--k|--keys] issue keys. they can be csv, e.g. \"foo-1, foo-2\" or a range foo-2..foo-10\n\t" +
-               "[--o|--output] output path for pdf e.g. c:\foo\temp.pdf\n\n"
+               "[--o|--output] output path for pdf e.g. c:\\foo\\temp.pdf\n\n"
 
   $stderr.puts "iteration: print cards for an iteration\n\n\t" +
-               "[--v|--version] the version you want to print e.g. Iteration 30\n\t" +
+               "[--v|--version] the version you want to print e.g. \"Iteration 30\"\n\t" +
                "[--p|--project] the project e.g. \"Some project\"\n\t" +
                "[--o|--output] output path for pdf e.g. c:\\foo\\temp.pdf\n\n"
 end
