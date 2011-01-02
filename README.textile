@@ -84,4 +84,13 @@ jira-cards iteration --project "Foo Team" --version "Iteration 30" --output c:\t
 
 h1. Templates
 
-The scrum cards are generated from an "erb":http://ruby-doc.org/stdlib/libdoc/erb/rdoc/ html template which is then converted to pdf using "pdfkit":https://github.com/jdpace/PDFKit. If you want to use your own template you can specify the path to your erb template & css file in the initial config. 
+The scrum cards are generated from an "erb":http://ruby-doc.org/stdlib/libdoc/erb/rdoc/ html template which is then converted to pdf using "pdfkit":https://github.com/jdpace/PDFKit. There is a default template however if wish to customize the look/fields you will need to set the path to the erb template and css stylesheet in the configuration (if you want to change the config: jira-cards config --reset). You can access all of the issues via the @issues variable (an array of issues). Common Properties:
+
+* issue_type: e.g. Story, Bug, Epic
+* summary 
+* key 
+* assignee
+* points 
+* custom fields: all custom fields are available, e.g. "Business value" would be bussiness_value
+
+Have a look at the "default template":https://github.com/jhollingworth/jira-cards/blob/master/lib/default_template.erb to see an example.
