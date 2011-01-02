@@ -59,7 +59,7 @@ jira-cards issues --keys foo-4..foo-10 --output c:\temp\test.pdf
 or you could go crazy and have both!
 
 <pre>
-jira-cards issues --keys foo-4..foo-10,foo-21..foo-35 --output c:\temp\test.pdf
+jira-cards issues --keys foo-4..foo-10,foo-14,foo-21..foo-35 --output c:\temp\test.pdf
 </pre> 
 
 h2. Iteration
