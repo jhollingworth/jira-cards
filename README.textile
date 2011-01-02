@@ -22,12 +22,35 @@ When you first run the tool it will ask you:
 
 These values are then written to a config.yml file. If you run the command it will tell you where the config file is if you want to change it. 
 
-h1. Templates
 
+h1. Example commands
 
-h1. Examples
+The two commands are issues and iteration. For both commands you need to specify the output flag which is the path where you want the output pdf file to go to. 
+
+h2. Issues 
+
+You want this command if you want to print specific issues. The only flag is --keys which are the key's of the issues you want. e.g. 
 
 <pre>
-jira-cards issues --keys foo-1..foo-10 --output c:\temp\test.pdf
+jira-cards issues --keys "foo-1, foo-4, foo-10" --output c:\temp\test.pdf
+</pre>
+
+You can also specify ranges (a la "ruby ranges":http://www.ruby-doc.org/core/classes/Range.html) of keys e.g.
+
+<pre>
+jira-cards issues --keys foo-4..foo-10 --output c:\temp\test.pdf
+</pre> 
+
+h2. Iteration
+
+You want this if you want to get all of the cards for an iteration (or version in jira-speak). The flags are:
+
+* --project
+* --version
+
+<pre>
 jira-cards iteration --project "Some project" --version "Iteration 30" --output c:\temp\test.pdf
 </pre>
+
+h1. Templates
+
