@@ -11,4 +11,4 @@ end
 gem 'soap4r'
 gem 'jira4r-jh', "> 0.3.0"
 gem 'pdfkit'
-gem 'optiflag'
+gem 'clint'
