@@ -1,17 +1,28 @@
 h1. jira-cards
 
-A command line tool for generating scrum cards from jira.
+A command line tool for generating scrum cards from jira. It allows you to customise the styling of the scrum cards using an erb template. 
 
 h1. Installation 
 
-
 You are going to need to
 
+* install the jira-cards gem <pre>gem install jira-cards</pre>
 * "Enable the jira RPC-Plugin":http://confluence.atlassian.com/display/JIRA/JIRA+XML-RPC+Overview
 * Install "wkhtmltopdf":http://code.google.com/p/wkhtmltopdf/ 
 
-h1. Templates
+h1. Configuration 
 
+When you first run the tool it will ask you:
+
+* The url to your jira instance e.g. jira.atlassian.com
+* A username & password for accessing jira. Whatever user you use must be an admin
+* Path to the wkhtmltopdf e.g. C:\\Program Files\\wkhtmltopdf\\wkhtmltopdf.exe 
+* If you want to use the default templates
+** If no, the path to the template erb & css file
+
+These values are then written to a config.yml file. If you run the command it will tell you where the config file is if you want to change it. 
+
+h1. Templates
 
 
 h1. Examples
