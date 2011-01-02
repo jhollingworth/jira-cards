@@ -20,16 +20,31 @@ When you first run the tool it will ask you:
 * If you want to use the default templates
 ** If no, the path to the template erb & css file
 
-These values are then written to a config.yml file. If you run the command it will tell you where the config file is if you want to change it. 
+You can view the current configuration using the config command:
 
+<pre>
+jira-cards config 
+</pre>
+
+If you want to change the config, you can use the reset flag:
+
+<pre>
+jira-cards config --reset
+</pre>
 
 h1. Commands
 
-The two commands are issues and iteration. For both commands you need to specify the output flag which is the path where you want the output pdf file to go to. 
-
 h2. Issues 
 
-You want this command if you want to print specific issues. The only flag is --keys which are the key's of the issues you want. e.g. 
+For printing individual issues.
+
+<pre>--output</pre> 
+The path you want the pdf written to 
+<pre>--keys</pre> 
+
+The issue keys you want to print
+
+You can specify individual keys (separated by comma), e.g. 
 
 <pre>
 jira-cards issues --keys "foo-1, foo-4, foo-10" --output c:\temp\test.pdf
@@ -39,6 +54,12 @@ You can also specify ranges (a la "ruby ranges":http://www.ruby-doc.org/core/cla
 
 <pre>
 jira-cards issues --keys foo-4..foo-10 --output c:\temp\test.pdf
+</pre> 
+
+or you could go crazy and have both!
+
+<pre>
+jira-cards issues --keys foo-4..foo-10,foo-21..foo-35 --output c:\temp\test.pdf
 </pre> 
 
 h2. Iteration
