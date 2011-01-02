@@ -6,7 +6,7 @@ h1. Installation
 
 You are going to need to
 
-* install the jira-cards gem <pre>gem install jira-cards</pre>
+* Install the jira-cards gem <pre>gem install jira-cards</pre>
 * "Enable the jira RPC-Plugin":http://confluence.atlassian.com/display/JIRA/JIRA+XML-RPC+Overview
 * Install "wkhtmltopdf":http://code.google.com/p/wkhtmltopdf/ 
 
