@@ -1,55 +1,44 @@
-require 'optiflag'
-$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'commands'
+require 'clint'
 
-require 'jql_generator'
-require 'jira'
-require 'html_renderer'
-require 'pdf_renderer'
-require 'configuration'
+c = Clint.new
 
-@command = ARGV[0]
-@command.downcase if !@command.nil?
-
-case @command
-  when "issues" then
-    module Issues extend OptiFlagSet
-      flag "keys", :description => "The issue keys you want to turn into cards"
-      flag "output", :description => "Path where you want to save the pdf to"
-      and_process!
-    end
-  when "iteration" then
-    module Issues extend OptiFlagSet
-      flag "project", :description => "The name of the green hopper project"
-      flag "version", :description => "The version that you want to print"
-      flag "output", :description => "Path where you want to save the pdf to"
-    
-      and_process!
-    end
-  else raise "Unknown command. Options are issues, iteration"
+c.usage do
+  $stderr.puts "\nA command line tool for generating jira scrum cards (for more help [--h|--help])\n\n"
 end
 
+c.help do
+  $stderr.puts "config: the current jira configuration\n\n\t[--r|--reset] if this flag is specified, it will reset the configuration\n\n"
 
-class Application
-  class << self
-    def run!(*args)
+  $stderr.puts "issues: print cards for specific issues\n\n\t" +
+               "[--k|--keys] issue keys. they can be csv, e.g. \"foo-1, foo-2\" or a range foo-2..foo-10\n\t" +
+               "[--o|--output] output path for pdf e.g. c:\foo\temp.pdf\n\n"
 
-      config = Configuration.new
+  $stderr.puts "iteration: print cards for an iteration\n\n\t" +
+               "[--v|--version] the version you want to print e.g. Iteration 30\n\t" +
+               "[--p|--project] the project e.g. \"Some project\"\n\t" +
+               "[--o|--output] output path for pdf e.g. c:\foo\temp.pdf\n\n"
+end
 
-      jira = Jira.new(config)
-      jql = JqlGenerator.generate(ARGV[0], ARGV.flags)
+c.options :help => false, :h => :help
+c.parse ARGV
 
-      html_renderer = HtmlRenderer.new(config)
-      pdf_renderer = PdfRenderer.new(config)
+if c.options[:help]
+  c.help
+  exit 1
+end
 
-      issues = jira.query(jql)
-
-      if issues.length == 0
-        puts "No issues found"
-        return
-      end
-
-      html = html_renderer.render(issues)
-      pdf_renderer.render(html, ARGV.flags[:output])
-    end
+c.subcommand Commands do |subcommand|
+  if subcommand == :config
+    c.options :reset => true, :r => :reset
   end
+  
+  if subcommand == :issues
+    c.options :keys => String, :k => :keys, :output => String, :o => :output
+  end
+
+  if subcommand == :iteration
+    c.options :project => String, :p => :project, :version => String, :v => :version, :output => String, :o => :output
+  end
+  c.parse
 end

@@ -6,13 +6,34 @@ require File.dirname(__FILE__) + '/meta'
 class Configuration
   include Meta
   def initialize()
-    @config_path = File.dirname(__FILE__) + '/config.yml'
-    create_config if false == File.exists?(@config_path)
-    puts "you can find the config file here #{File.expand_path(@config_path)}"
-    YAML.load_file(@config_path).each do |key, value|
+    create_config if false == File.exists?(Configuration.config_path)
+
+    YAML.load_file(Configuration.config_path).each do |key, value|
       create_method(key) {
         value
       }
+    end
+  end
+
+  class << self
+
+    def reset!()
+      File.delete(config_path) if File.exists?(config_path)
+      Configuration.new
+    end
+
+    def config_path()
+      File.dirname(__FILE__) + '/config.yml'
+    end
+
+    def print()
+      if !File.exists?(config_path)
+        puts "jira-cards has not been configured yet"
+        exit 1
+      end
+      YAML.load_file(Configuration.config_path).each do |key, value|
+        puts "#{key}: #{value}"
+      end
     end
   end
 
@@ -30,7 +51,7 @@ class Configuration
         "template_stylesheet" => template_stylesheet
     }
 
-    File.open(@config_path, "w") do |f|
+    File.open(Configuration.config_path, "w") do |f|
       f.write(config.to_yaml)
     end
   end
@@ -86,11 +107,26 @@ class Configuration
   end
 
   def wkhtmltopdf_path()
-    get_non_empty_value(
+    get_file_path(
         "What is the path to wkhtmltopdf? e.g. C:\\\\Program Files\\\\wkhtmltopdf\\\\wkhtmltopdf.exe. " +
         "If you don't have it installed, please install from http://code.google.com/p/wkhtmltopdf/",
         "wkhtmltopdf path"
     )
+  end
+
+  def get_file_path(question, type)
+    path = get_non_empty_value(question, type)
+
+    invalid = true
+    while invalid
+      if !File.exists?(path)
+        path = ask("The file #{path} does not exist")
+      else
+        invalid = false
+      end
+    end
+
+    path
   end
 
   def template_erb()
@@ -103,13 +139,23 @@ class Configuration
       end
     end
 
-    return nil if @use_default
-    get_non_empty_value("What is the path to the template? e.g. c:\\\\foo\\\\template.erb", "template path")
+    if @use_default
+      clean_path("default_template.erb")
+    else
+      get_file_path("What is the path to the template? e.g. c:\\\\foo\\\\template.erb", "template path")
+    end
   end
 
   def template_stylesheet()
-    return nil if @use_default
-    get_non_empty_value("What is the path to the template stylesheet? e.g. c:\\\\foo\\\\template.css", "template stylesheet")
+    if @use_default
+      clean_path("default_template.css")
+    else
+      get_file_path("What is the path to the template stylesheet? e.g. c:\\\\foo\\\\template.css", "template stylesheet")
+    end
+  end
+
+  def clean_path(path)
+    File.expand_path(File.dirname(__FILE__) + "/" + path).gsub('/', '\\\\\\')
   end
 
   def ask(question)

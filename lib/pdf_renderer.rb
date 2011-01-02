@@ -3,7 +3,7 @@ require 'pdfkit'
 class PdfRenderer
 
   def initialize(config)
-    @stylesheet = config.template_stylesheet || File.dirname(__FILE__) + "/default_template.css"
+    @stylesheet = config.template_stylesheet 
     @config = config
   end
 

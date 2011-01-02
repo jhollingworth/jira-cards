@@ -3,7 +3,7 @@ require 'erb'
 class HtmlRenderer
 
   def initialize(config)
-    @template = config.template_erb || File.dirname(__FILE__) + "/default_template.erb"
+    @template = config.template_erb 
   end
 
   def render(issues)
