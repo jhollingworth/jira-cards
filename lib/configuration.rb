@@ -1,6 +1,7 @@
 require 'yaml'
 require 'net/http'
 require 'uri'
+require 'ftools'
 require File.dirname(__FILE__) + '/meta'
 
 class Configuration
@@ -17,9 +18,18 @@ class Configuration
 
   class << self
 
-    def reset!()
-      File.delete(config_path) if File.exists?(config_path)
-      Configuration.new
+    def reset!(path)
+      if path != ""
+        if !File.exists?(path)
+          puts "Config file #{path} does not exist"
+          exit 1
+        end
+        File.delete(config_path) if File.exists?(config_path)
+        File.copy(path, config_path)
+      else
+        File.delete(config_path) if File.exists?(config_path)
+        Configuration.new
+      end
     end
 
     def config_path()

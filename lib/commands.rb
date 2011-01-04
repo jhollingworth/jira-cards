@@ -10,7 +10,7 @@ class Commands
 
     def config(options = {})
       if options[:reset] == false
-        Configuration.reset!
+        Configuration.reset!(options[:config_path])
       else
         Configuration.print
       end

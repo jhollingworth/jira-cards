@@ -10,6 +10,7 @@ end
 c.help do
   $stderr.puts "config: shows the current jira configuration\n\n\t" +
                "[--r|--reset] if this flag is specified, it will reset the configuration\n\n"
+               "[--c|--config_path] if resetting the config, you can use this flag to specify the path to the config file rather than it asking the questions\n\n"
 
   $stderr.puts "issues: print cards for specific issues\n\n\t" +
                "[--k|--keys] issue keys. they can be csv, e.g. \"foo-1, foo-2\" or a range foo-2..foo-10\n\t" +
@@ -31,7 +32,7 @@ end
 
 c.subcommand Commands do |subcommand|
   if subcommand == :config
-    c.options :reset => true, :r => :reset
+    c.options :reset => true, :r => :reset, :config_path => String, :c => :config_path
   end
   
   if subcommand == :issues
