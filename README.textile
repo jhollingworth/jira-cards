@@ -91,6 +91,6 @@ The scrum cards are generated from an "erb":http://ruby-doc.org/stdlib/libdoc/er
 * key 
 * assignee
 * points 
-* custom fields: all custom fields are available, e.g. "Business value" would be bussiness_value
+* custom fields: all custom fields are available, e.g. "Business value" would be business_value
 
 Have a look at the "default template":https://github.com/jhollingworth/jira-cards/blob/master/lib/default_template.erb to see an example.
